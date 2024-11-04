@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FlowerRepository extends JpaRepository<Flower, Long> {
-    // Basic CRUD operations are automatically provided by JpaRepository
 }

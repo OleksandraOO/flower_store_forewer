@@ -35,4 +35,8 @@ public class Order {
         double totalPrice = calculateTotalPrice();
         return paymentStrategy.pay(totalPrice);
     }
+    public List<Item> getItems() {
+        return items;
+    }
+    
 }

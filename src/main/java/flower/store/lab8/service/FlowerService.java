@@ -1,26 +1,25 @@
 package flower.store.lab8.service;
 
 import flower.store.lab8.model.Flower;
+import flower.store.lab8.repository.FlowerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class FlowerService {
-    private final List<Flower> flowers = new ArrayList<>();
+    private final FlowerRepository flowerRepository;
 
-    public FlowerService() {
-        flowers.add(new Flower("Rose", "Red", 15.99, true));
-        flowers.add(new Flower("Tulip", "Yellow", 10.99, true));
-        flowers.add(new Flower("Lily", "White", 12.99, true));
+    @Autowired
+    public FlowerService(FlowerRepository flowerRepository) {
+        this.flowerRepository = flowerRepository;
     }
 
     public List<Flower> getFlowers() {
-        return flowers;
+        return flowerRepository.findAll();
     }
 
-    public void addFlower(Flower flower) {
-        flowers.add(flower);
+    public Flower addFlower(Flower flower) {
+        return flowerRepository.save(flower);
     }
 }

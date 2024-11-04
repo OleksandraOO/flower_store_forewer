@@ -1,4 +1,4 @@
-package main.java.flower.store.lab8.repository;
+package flower.store.lab8.repository;
 
 import flower.store.lab8.model.Flower;
 import org.springframework.data.jpa.repository.JpaRepository;
